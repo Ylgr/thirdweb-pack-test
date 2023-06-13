@@ -42,9 +42,9 @@ Replace the example contract addresses with your contract addresses in the pages
 
 You can use find and replace to change these contract addresses. Our example contract addresses are:
 
-- Pack: `0x0Aee160411473f63be2DfF2865E81A1D59636C97`
-- Token: `0x270d0f9DA22332F33159337E3DE244113a1C863C`
-- Edition: `0xb4A48c837aB7D0e5C85eA2b0D9Aa11537340Fa17`
+- Pack: `0x0f1F528c33E3F40260ec044a3F31450E007e1104`
+- Token: `0x0fC04873a7B51FB4a16EE54Fb3447DbF3C944A3d`
+- Edition: `0xdF7A07e9dF1642af296f6B7507F1039A13C9016B`
 
 ---
 
@@ -102,7 +102,7 @@ const disconnectWallet = useDisconnect();
 We use the [usePack](https://portal.thirdweb.com/react/react.usepack) hook to connect to the pack contract using it's contract address:
 
 ```jsx
-const pack = usePack("0x0Aee160411473f63be2DfF2865E81A1D59636C97");
+const pack = usePack("0x0f1F528c33E3F40260ec044a3F31450E007e1104");
 ```
 
 ### Viewing Packs Owned by the Connected Wallet

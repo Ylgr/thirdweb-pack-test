@@ -1,26 +1,25 @@
 import {
-  ThirdwebNftMedia,
-  useAddress,
-  useContract,
-  useOwnedNFTs,
-  Web3Button,
+    ThirdwebNftMedia,
+    useAddress,
+    useContract,
+    useOwnedNFTs,
+    Web3Button,
 } from "@thirdweb-dev/react";
-import { PackRewards } from "@thirdweb-dev/sdk/dist/declarations/src/evm/schema";
 import type { NextPage } from "next";
 import { useState } from "react";
 import ERC1155RewardBox from "../components/ERC1155RewardBox";
 import ERC20RewardBox from "../components/ERC20RewardBox";
 import styles from "../styles/Home.module.css";
+import {PackRewards} from "@thirdweb-dev/sdk/dist/declarations/src/evm/schema/tokens/pack";
 
 const Home: NextPage = () => {
   const address = useAddress();
 
   const { contract: pack } = useContract(
-    "0x697786E18F370b04e96497113016a2c8c85B17F4",
+    "0x0f1F528c33E3F40260ec044a3F31450E007e1104",
     "pack"
   );
 
-  // @ts-ignore
   const { data: nfts, isLoading } = useOwnedNFTs(pack, address);
 
   const [openedPackRewards, setOpenedPackRewards] = useState<PackRewards>();
@@ -44,7 +43,7 @@ const Home: NextPage = () => {
                   <h3>{nft.metadata.name}</h3>
 
                   <Web3Button
-                    contractAddress="0x697786E18F370b04e96497113016a2c8c85B17F4"
+                    contractAddress="0x0f1F528c33E3F40260ec044a3F31450E007e1104"
                     action={async () => {
                       const openedRewards = await pack?.open(0, 1);
                       console.log("Opened rewards:", openedRewards);

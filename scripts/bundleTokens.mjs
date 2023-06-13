@@ -5,9 +5,9 @@ import fs from "fs";
 import { ThirdwebStorage } from "@thirdweb-dev/storage";
 
 (async () => {
-  const packAddress = "0x0Aee160411473f63be2DfF2865E81A1D59636C97";
-  const tokenAddress = "0x270d0f9DA22332F33159337E3DE244113a1C863C";
-  const editionAddress = "0xb4A48c837aB7D0e5C85eA2b0D9Aa11537340Fa17";
+  const packAddress = "0x0f1F528c33E3F40260ec044a3F31450E007e1104";
+  const tokenAddress = "0x0fC04873a7B51FB4a16EE54Fb3447DbF3C944A3d";
+  const editionAddress = "0xdF7A07e9dF1642af296f6B7507F1039A13C9016B";
 
   const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "goerli");
 
@@ -16,11 +16,13 @@ import { ThirdwebStorage } from "@thirdweb-dev/storage";
   // Set approval for the pack contract to act upon token and edition contracts
   const token = await sdk.getContract(tokenAddress, 'token');
   await token.setAllowance(packAddress, 100);
+  // await token.call("increaseAllowance",[packAddress, 100]);
 
   console.log("Set approval for token");
 
   const edition = await sdk.getContract(editionAddress, 'edition');
   await edition.setApprovalForAll(packAddress, true);
+  // await edition.call("setApprovalForAll", [packAddress, true]);
 
   console.log("Set Approval for edition");
 
